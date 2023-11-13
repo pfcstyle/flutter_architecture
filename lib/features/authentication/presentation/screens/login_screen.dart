@@ -1,8 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/features/authentication/presentation/providers/auth_providers.dart';
+import 'package:flutter_architecture/features/authentication/domain/providers/login_provider.dart';
+import 'package:flutter_architecture/features/authentication/domain/repositories/auth_repository.dart';
+import 'package:flutter_architecture/features/authentication/presentation/providers/state/auth_notifier.dart';
 import 'package:flutter_architecture/features/authentication/presentation/providers/state/auth_state.dart';
 import 'package:flutter_architecture/features/authentication/presentation/widgets/auth_field.dart';
+import 'package:flutter_architecture/services/user_cache_service/domain/providers/user_cache_provider.dart';
+import 'package:flutter_architecture/services/user_cache_service/domain/repositories/user_cache_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:flutter_architecture/routes/app_route.dart';
@@ -19,9 +23,9 @@ class LoginScreen extends ConsumerWidget {
       TextEditingController(text: '0lelplR');
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(authStateNotifierProvider);
+    final state = ref.watch(authNotifierProvider);
     ref.listen(
-      authStateNotifierProvider.select((value) => value),
+      authNotifierProvider.select((value) => value),
       ((previous, next) {
         //show Snackbar on failure
         if (next is Failure) {
@@ -63,7 +67,7 @@ class LoginScreen extends ConsumerWidget {
     return ElevatedButton(
       onPressed: () {
         // validate email and password
-        ref.read(authStateNotifierProvider.notifier).loginUser(
+        ref.read(authNotifierProvider.notifier).loginUser(
               usernameController.text,
               passwordController.text,
             );
