@@ -40,7 +40,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
         child: Text(
           'Splash Screen',
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontWeight: FontWeight.w600,
             fontSize: 18.0,
           ),

@@ -5,7 +5,7 @@ import 'package:flutter_architecture/main/app_env.dart';
 import 'package:flutter_architecture/main/observers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() => mainCommon(AppEnvironment.DEV);
+void main() => mainCommon(AppEnvironment.PROD);
 
 Future<void> mainCommon(AppEnvironment environment) async {
   WidgetsFlutterBinding.ensureInitialized();

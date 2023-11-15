@@ -36,7 +36,7 @@ dependencies:
   shared_preferences: ^2.2.2
   auto_route: ^7.8.4
   dio: ^5.3.3
-  json_annotation: ^4.8.1
+  json_annotation: ^4.8.1 # use in freezed_annotation
   freezed_annotation: ^2.4.1
   equatable: ^2.0.5
   state_notifier: ^1.0.0

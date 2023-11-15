@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_architecture/configs/app_configs.dart';
+import 'package:flutter_architecture/shared/configs/app_configs.dart';
 import 'package:flutter_architecture/shared/data/remote/network_service.dart';
 import 'package:flutter_architecture/shared/domain/models/either.dart';
 import 'package:flutter_architecture/shared/domain/models/response.dart' as response;

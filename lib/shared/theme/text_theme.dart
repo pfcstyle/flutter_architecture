@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/shared/theme/app_colors.dart';
-import 'package:flutter_architecture/shared/theme/test_styles.dart';
+import 'package:flutter_architecture/shared/theme/text_styles.dart';
 
 class TextThemes {
   /// Main text theme

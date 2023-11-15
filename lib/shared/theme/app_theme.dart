@@ -3,7 +3,7 @@ import 'package:flutter_architecture/shared/data/local/storage_service.dart';
 import 'package:flutter_architecture/shared/domain/providers/sharedpreferences_storage_service_provider.dart';
 import 'package:flutter_architecture/shared/globals.dart';
 import 'package:flutter_architecture/shared/theme/app_colors.dart';
-import 'package:flutter_architecture/shared/theme/test_styles.dart';
+import 'package:flutter_architecture/shared/theme/text_styles.dart';
 import 'package:flutter_architecture/shared/theme/text_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
