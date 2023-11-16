@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/services/user_cache_service/domain/providers/user_cache_provider.dart';
+import 'package:flutter_architecture/shared/services/user_cache_service/domain/providers/user_cache_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final userLoginCheckProvider = FutureProvider((ref) async {

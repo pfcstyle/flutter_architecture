@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_architecture/shared/domain/models/either.dart';
-import 'package:flutter_architecture/shared/domain/models/response.dart';
+import 'package:flutter_architecture/shared/models/either.dart';
+import 'package:flutter_architecture/shared/models/response.dart';
 
 class AppException implements Exception {
   final String? message;

@@ -40,7 +40,7 @@ class AuthdataSourceFamily extends Family<LoginUserRemoteDataSource> {
 
   /// See also [authdataSource].
   AuthdataSourceProvider call(
-    NetworkService networkService,
+    NetworkRepository networkService,
   ) {
     return AuthdataSourceProvider(
       networkService,
@@ -76,7 +76,7 @@ class AuthdataSourceProvider
     extends AutoDisposeProvider<LoginUserRemoteDataSource> {
   /// See also [authdataSource].
   AuthdataSourceProvider(
-    NetworkService networkService,
+    NetworkRepository networkService,
   ) : this._internal(
           (ref) => authdataSource(
             ref as AuthdataSourceRef,
@@ -104,7 +104,7 @@ class AuthdataSourceProvider
     required this.networkService,
   }) : super.internal();
 
-  final NetworkService networkService;
+  final NetworkRepository networkService;
 
   @override
   Override overrideWith(
@@ -146,7 +146,7 @@ class AuthdataSourceProvider
 
 mixin AuthdataSourceRef on AutoDisposeProviderRef<LoginUserRemoteDataSource> {
   /// The parameter `networkService` of this provider.
-  NetworkService get networkService;
+  NetworkRepository get networkService;
 }
 
 class _AuthdataSourceProviderElement
@@ -155,7 +155,7 @@ class _AuthdataSourceProviderElement
   _AuthdataSourceProviderElement(super.provider);
 
   @override
-  NetworkService get networkService =>
+  NetworkRepository get networkService =>
       (origin as AuthdataSourceProvider).networkService;
 }
 

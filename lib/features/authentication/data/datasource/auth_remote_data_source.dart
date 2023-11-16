@@ -1,6 +1,6 @@
-import 'package:flutter_architecture/shared/data/remote/remote.dart';
-import 'package:flutter_architecture/shared/domain/models/either.dart';
-import 'package:flutter_architecture/shared/domain/models/models.dart';
+import 'package:flutter_architecture/shared/services/common_service/domain/repositories/network_repository.dart';
+import 'package:flutter_architecture/shared/models/either.dart';
+import 'package:flutter_architecture/shared/models/models.dart';
 import 'package:flutter_architecture/shared/exceptions/http_exception.dart';
 
 abstract class LoginUserDataSource {
@@ -8,7 +8,7 @@ abstract class LoginUserDataSource {
 }
 
 class LoginUserRemoteDataSource implements LoginUserDataSource {
-  final NetworkService networkService;
+  final NetworkRepository networkService;
 
   LoginUserRemoteDataSource(this.networkService);
 

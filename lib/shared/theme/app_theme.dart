@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/shared/data/local/storage_service.dart';
-import 'package:flutter_architecture/shared/domain/providers/sharedpreferences_storage_service_provider.dart';
+import 'package:flutter_architecture/shared/services/common_service/domain/repositories/storage_repository.dart';
+import 'package:flutter_architecture/shared/services/common_service/domain/providers/sharedpreferences_storage_service_provider.dart';
 import 'package:flutter_architecture/shared/globals.dart';
 import 'package:flutter_architecture/shared/theme/app_colors.dart';
 import 'package:flutter_architecture/shared/theme/text_styles.dart';
@@ -15,7 +15,7 @@ final appThemeProvider = StateNotifierProvider<AppThemeModeNotifier, ThemeMode>(
 );
 
 class AppThemeModeNotifier extends StateNotifier<ThemeMode> {
-  final StroageService stroageService;
+  final StorageRepository stroageService;
 
   ThemeMode currentTheme = ThemeMode.light;
 
