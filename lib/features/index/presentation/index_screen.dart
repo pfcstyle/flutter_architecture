@@ -1,69 +1,46 @@
-
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/features/activity/presentation/screens/activity_screen.dart';
-import 'dart:io';
+import 'package:flutter_architecture/routes/app_route.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:flutter_architecture/features/index/presentation/tabbar_item.dart';
-import 'package:flutter_architecture/features/workspace%20copy/presentation/screens/workspace_screen.dart';
-import 'package:flutter_architecture/features/workspace/presentation/screens/workspace_screen.dart';
-
-class IndexScreen extends StatefulWidget {
+@RoutePage()
+class IndexScreen extends ConsumerWidget {
   const IndexScreen({super.key});
 
   @override
-  State<IndexScreen> createState() => _NormalTabBarState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    // we'll use [AutoTabsRouter] to handle tab navigation
+    return AutoTabsRouter(
+      // list of your tab routes
+      routes: const [WorkspaceRoute(), ActivityRoute(), MeRoute()],
+      transitionBuilder: (context, child, animation) {
+        // add animation to our selected-tab page
+        return FadeTransition(opacity: animation, child: child);
+      },
+      builder: (context, child) {
+        final tabsRouter = AutoTabsRouter.of(context);
 
-class _NormalTabBarState extends State<IndexScreen> {
-
-  final PageController _controller = PageController(
-    initialPage: 0 
-  );
-
-  final List<TabBarItem> items = [
-    TabBarItem(title: 'Workspace', norImage: "images/tabbar_chat.png", selImage: "images/tabbar_chat_hl.png"),
-    TabBarItem(title: 'Activity', norImage: "images/tabbar_contact.png", selImage: "images/tabbar_contact_hl.png"),
-    TabBarItem(title: 'Me', norImage: "images/tabbar_discover.png", selImage: "images/tabbar_discover_hl.png")
-  ];
-
-  int _pageIndex = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _pageIndex,
-        onTap: (int page) {
-          setState(() {
-            _pageIndex = page;
-          });
-          _controller.jumpToPage(page);
-        },
-        backgroundColor: Colors.white,
-        type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.cyanAccent,
-        unselectedFontSize: 12,
-        selectedFontSize: 12,
-        items: items.map((e) {
-          return BottomNavigationBarItem(
-            label: e.title,
-            icon: Image.asset(e.norImage,  width: 20, height: 20,),
-            activeIcon: Image.asset(e.selImage, width: 20, height: 20,),
-          );
-        }).toList(),
-      ),
-      body: PageView(
-        controller: _controller,
-        //不设置默认可以左右活动，如果不想左右滑动如下设置，可以根据ios或者android来设置
-        physics: Platform.isAndroid ? const PageScrollPhysics() : const NeverScrollableScrollPhysics(),
-        children: const [
-          //设置内容页面即可，要和 bottomNavigationBar 数量一致
-          WorkspaceScreen(),
-          ActivityScreen(),
-          MeScreen()
-        ],
-      ),
+        // [ScaffoldWithNavbar] is simple a widget that return a Scaffold
+        // and set active route on BottomNavigationBar Tap
+        return Scaffold(
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: tabsRouter.activeIndex,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Image.asset('assets/images/index/ws_icon.png', width: 20, height: 20), label: 'Workspace', activeIcon: Image.asset('assets/images/index/ws_icon_selected.png', width: 20, height: 20)),
+              BottomNavigationBarItem(
+                  icon: Image.asset('assets/images/index/ws_icon.png', width: 20, height: 20), label: 'Activity', activeIcon: Image.asset('assets/images/index/activity_icon_selected.png', width: 20, height: 20)),
+              BottomNavigationBarItem(
+                  icon: Image.asset('assets/images/index/me_icon.png', width: 20, height: 20), label: 'Me', activeIcon: Image.asset('assets/images/index/me_icon_selected.png', width: 20, height: 20)),
+            ],
+            onTap: (index) {
+              // change current tab
+              tabsRouter.setActiveIndex(index);
+            },
+          ),
+          body: child,
+        );
+      },
     );
   }
 }

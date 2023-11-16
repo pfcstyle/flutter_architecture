@@ -33,7 +33,7 @@ class LoginScreen extends ConsumerWidget {
               SnackBar(content: Text(next.exception.message.toString())));
         } else if (next is Success) {
           AutoRouter.of(context)
-              .pushAndPopUntil(const DashboardRoute(), predicate: (_) => false);
+              .pushAndPopUntil(const IndexRoute(), predicate: (_) => false);
         }
       }),
     );

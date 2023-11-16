@@ -8,7 +8,7 @@ import 'package:flutter_architecture/routes/app_route.dart';
 @RoutePage()
 class SplashScreen extends ConsumerStatefulWidget {
   static const String routeName = '/splashScreen';
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   ConsumerState<SplashScreen> createState() => _SplashScreenState();
@@ -22,7 +22,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     Future.delayed(const Duration(seconds: 2), () async {
       final isUserLoggedIn = await ref.read(userLoginCheckProvider.future);
       final route = isUserLoggedIn
-          ? const DashboardRoute()
+          ? const IndexRoute()
           : LoginRoute() as PageRouteInfo;
       // ignore: use_build_context_synchronously
       AutoRouter.of(context).pushAndPopUntil(
