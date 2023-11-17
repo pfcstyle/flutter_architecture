@@ -2,6 +2,14 @@
 
 A new Flutter project.
 
+```
+dart pub global activate flutter_gen
+dart run build_runner watch -d
+dart run build_runner build
+flutter gen-l10n
+bool isRtl = Directionality.of(context) == TextDirection.rtl;
+```
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

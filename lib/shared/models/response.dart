@@ -1,5 +1,5 @@
 import 'package:flutter_architecture/shared/models/either.dart';
-import 'package:flutter_architecture/shared/exceptions/http_exception.dart';
+import 'package:flutter_architecture/shared/exceptions/app_exception.dart';
 
 class Response {
   final int statusCode;

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter_architecture/shared/services/common_service/domain/repositories/storage_repository.dart';
 import 'package:flutter_architecture/shared/models/either.dart';
 import 'package:flutter_architecture/shared/models/user/user_model.dart';
-import 'package:flutter_architecture/shared/exceptions/http_exception.dart';
+import 'package:flutter_architecture/shared/exceptions/app_exception.dart';
 import 'package:flutter_architecture/shared/globals.dart';
 
 abstract class UserDataSource {

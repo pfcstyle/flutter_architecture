@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_architecture/shared/services/common_service/domain/repositories/storage_repository.dart';
 import 'package:flutter_architecture/shared/services/common_service/domain/providers/sharedpreferences_storage_service_provider.dart';
 import 'package:flutter_architecture/shared/globals.dart';
-import 'package:flutter_architecture/shared/theme/app_colors.dart';
+import 'package:flutter_architecture/shared/theme/extend_color_scheme.dart';
 import 'package:flutter_architecture/shared/theme/text_styles.dart';
 import 'package:flutter_architecture/shared/theme/text_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -41,19 +41,14 @@ class AppTheme {
       brightness: Brightness.dark,
       fontFamily: AppTextStyles.fontFamily,
       primaryColor: AppColors.primary,
-      colorScheme: const ColorScheme.dark(
-        primary: AppColors.primary,
-        secondary: AppColors.lightGrey,
-        error: AppColors.error,
-        background: AppColors.black,
-      ),
+      colorScheme: const ColorScheme.dark(),
       // backgroundColor: AppColors.black,
       scaffoldBackgroundColor: AppColors.black,
       textTheme: TextThemes.darkTextTheme,
       primaryTextTheme: TextThemes.primaryTextTheme,
       appBarTheme: const AppBarTheme(
         elevation: 0,
-        backgroundColor: AppColors.black,
+        backgroundColor: AppColors.primaryDrak,
         titleTextStyle: AppTextStyles.h2,
       ),
     );
@@ -66,11 +61,7 @@ class AppTheme {
       primaryColor: AppColors.primary,
       textTheme: TextThemes.textTheme,
       primaryTextTheme: TextThemes.primaryTextTheme,
-      colorScheme: const ColorScheme.light(
-        primary: AppColors.primary,
-        secondary: AppColors.lightGrey,
-        error: AppColors.error,
-      ),
+      colorScheme: const ColorScheme.light(),
       appBarTheme: const AppBarTheme(
         elevation: 0,
         backgroundColor: AppColors.primary,

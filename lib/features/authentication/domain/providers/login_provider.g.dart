@@ -6,7 +6,7 @@ part of 'login_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authdataSourceHash() => r'c0f91d319387a5de9f5c9e871b1eebd9803a3bc1';
+String _$authdataSourceHash() => r'cf5b4342cdd31d936147bb302ebb6de409d897c3';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -159,7 +159,7 @@ class _AuthdataSourceProviderElement
       (origin as AuthdataSourceProvider).networkService;
 }
 
-String _$authRepositoryHash() => r'1efbc9a1b38615ceeaf937402def99e42122c22d';
+String _$authRepositoryHash() => r'b12769df36f22fdd4dd0336fbc88de59a3ed6983';
 
 /// See also [authRepository].
 @ProviderFor(authRepository)

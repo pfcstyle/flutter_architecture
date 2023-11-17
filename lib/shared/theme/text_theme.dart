@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/shared/theme/app_colors.dart';
+import 'package:flutter_architecture/shared/theme/extend_color_scheme.dart';
 import 'package:flutter_architecture/shared/theme/text_styles.dart';
 
 class TextThemes {

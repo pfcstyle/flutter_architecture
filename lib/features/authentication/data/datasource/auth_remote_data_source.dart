@@ -1,7 +1,7 @@
 import 'package:flutter_architecture/shared/services/common_service/domain/repositories/network_repository.dart';
 import 'package:flutter_architecture/shared/models/either.dart';
 import 'package:flutter_architecture/shared/models/models.dart';
-import 'package:flutter_architecture/shared/exceptions/http_exception.dart';
+import 'package:flutter_architecture/shared/exceptions/app_exception.dart';
 
 abstract class LoginUserDataSource {
   Future<Either<AppException, User>> loginUser({required User user});

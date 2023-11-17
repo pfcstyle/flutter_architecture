@@ -6,7 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_architecture/shared/services/common_service/domain/repositories/network_repository.dart';
 import 'package:flutter_architecture/shared/models/either.dart';
 import 'package:flutter_architecture/shared/models/response.dart' as response;
-import 'package:flutter_architecture/shared/exceptions/http_exception.dart';
+import 'package:flutter_architecture/shared/exceptions/app_exception.dart';
 
 mixin ExceptionHandlerMixin on NetworkRepository {
   Future<Either<AppException, response.Response>>

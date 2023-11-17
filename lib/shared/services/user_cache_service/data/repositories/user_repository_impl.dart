@@ -2,7 +2,7 @@ import 'package:flutter_architecture/shared/services/user_cache_service/data/dat
 import 'package:flutter_architecture/shared/services/user_cache_service/domain/repositories/user_cache_repository.dart';
 import 'package:flutter_architecture/shared/models/either.dart';
 import 'package:flutter_architecture/shared/models/user/user_model.dart';
-import 'package:flutter_architecture/shared/exceptions/http_exception.dart';
+import 'package:flutter_architecture/shared/exceptions/app_exception.dart';
 
 class UserRepositoryImpl extends UserRepository {
   UserRepositoryImpl(this.dataSource);

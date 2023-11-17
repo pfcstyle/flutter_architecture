@@ -4,7 +4,7 @@ import 'package:flutter_architecture/features/authentication/presentation/provid
 import 'package:flutter_architecture/shared/services/user_cache_service/domain/providers/user_cache_provider.dart';
 import 'package:flutter_architecture/shared/services/user_cache_service/domain/repositories/user_cache_repository.dart';
 import 'package:flutter_architecture/shared/models/user/user_model.dart';
-import 'package:flutter_architecture/shared/exceptions/http_exception.dart';
+import 'package:flutter_architecture/shared/exceptions/app_exception.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_notifier.g.dart';

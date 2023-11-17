@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 
+extension ExtendColorScheme on ColorScheme {
+  //Theme.of(context).colorScheme.customColor1,
+  Color get customColor1 => autoChange(AppColors.primary, AppColors.primaryDrak);
+
+  Color autoChange(Color lightColor, Color darkColor){
+    return brightness == Brightness.light ? lightColor : darkColor;
+  }
+}
+
 class AppColors {
   /// App primary color
   static const Color primary = Color(0xff1DA1F2);
+  static const Color primaryDrak = Color(0xff14171A);
 
   /// App secondary color
   static const Color error = Color(0xffFC698C);

@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/shared/exceptions/http_exception.dart';
+import 'package:flutter_architecture/shared/exceptions/app_exception.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
