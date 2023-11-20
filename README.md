@@ -71,31 +71,42 @@ Communicates directly with the `Providers` from the domain layer.
 
 - `main.dart` file has services initialization code and wraps the root `MyApp` with a `ProviderScope`
 - `main/app.dart` has the root `MaterialApp` and initializes `AppRouter` to handle the route throughout the application.
-- `services` abstract app-level services with their implementations.
+- The `router` folder contains router configurations and handlers by auto_route.
+- The `l10n` folder contains all language arbs.
 - The `shared` folder contains code shared across features
+  - `services` abstract app-level services with their implementations.
   - `theme` contains general styles (colors, themes & text styles)
   - `model` contains all the Data models needed in the application.
   - `http` is implemented with Dio.
-  - `storage` is implemented with SharedPreferences.
+  - `utils` contains all static util classes.
+  - `widges` contains all widgets shared across features.
   - Service locator pattern and Riverpod are used to abstract services when used in other layers.
-
-```
-dart pub global activate flutter_gen
-dart run build_runner watch -d
-dart run build_runner build
-flutter gen-l10n
-bool isRtl = Directionality.of(context) == TextDirection.rtl;
-```
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+##### Clone this repository
 
-A few resources to get you started if this is your first Flutter project:
+` git clone https://github.com/Uuttssaavv/flutter-clean-architecture-riverpod`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+##### Go to the project directory
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+` cd flutter-clean-architecture-riverpod`
+
+##### Get all the packages
+
+`flutter pub get`
+
+#### Get flutter_gen for l10n
+
+`dart pub global activate flutter_gen`
+
+##### Run the build runner command to generate code like router, freeze model and so on
+
+`dart run build_runner build` or `dart run build_runner watch -d`
+
+##### Run gen-l10n to generate l10n code
+`flutter gen-l10n`
+
+##### Run the project
+
+`flutter run` or simply press ` F5 key` if you are using VSCode
