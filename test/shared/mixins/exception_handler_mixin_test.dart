@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_architecture/shared/services/common_service/data/remote/dio_network_repository_imp.dart';
+import 'package:flutter_architecture/shared/services/common_service/data/datasouce/dio_network_repository_imp.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
