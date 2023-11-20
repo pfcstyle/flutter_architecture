@@ -14,7 +14,6 @@ class MyApp extends ConsumerWidget {
     final themeMode = ref.watch(appThemeProvider);
     return MaterialApp.router(
       onGenerateTitle: (context) => L.of(context).title,
-      title: "",
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeMode,
