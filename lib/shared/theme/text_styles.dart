@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
-  static const String fontFamily = 'Helvetica';
+  // static const String fontFamily = 'Helvetica';
+  static const String fontFamily = 'Avenir';
 
   /// Text style for body
   static const TextStyle bodyLg = TextStyle(
