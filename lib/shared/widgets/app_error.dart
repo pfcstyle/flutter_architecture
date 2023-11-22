@@ -8,7 +8,7 @@ class AppError extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final theme = ref.watch(appThemeProvider.notifier);
+    final theme = ref.watch(appThemeModeNotifierProvider.notifier);
     return Scaffold(
       appBar: AppBar(),
       body: InkWell(

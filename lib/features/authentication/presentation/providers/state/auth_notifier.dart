@@ -12,28 +12,28 @@ part 'auth_notifier.g.dart';
 @riverpod
 class AuthNotifier extends _$AuthNotifier {
 
-  late final AuthenticationRepository authRepository;
-  late final UserRepository userRepository;
+  late final AuthenticationRepository _authRepository;
+  late final UserRepository _userRepository;
   
   @override
   AuthState build() {
     // ref.onDispose(() { })
     // state = const AsyncValue.data(AuthState.initial());
-    authRepository = ref.watch(authRepositoryProvider);
-    userRepository = ref.watch(userLocalRepositoryProvider);
+    _authRepository = ref.watch(authRepositoryProvider);
+    _userRepository = ref.watch(userLocalRepositoryProvider);
     return const AuthState.initial();
   }
 
   Future<void> loginUser(String username, String password) async {
     state = const AuthState.loading();
-    final response = await authRepository.loginUser(
+    final response = await _authRepository.loginUser(
       user: User(username: username, password: password),
     );
 
     state = await response.fold(
       (failure) => AuthState.failure(failure),
       (user) async {
-        final hasSavedUser = await userRepository.saveUser(user: user);
+        final hasSavedUser = await _userRepository.saveUser(user: user);
         if (hasSavedUser) {
           return const AuthState.success();
         }

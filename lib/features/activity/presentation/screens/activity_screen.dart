@@ -10,10 +10,10 @@ class ActivityScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Workspace"),
+        title: const Text("Activity"),
       ),
       body: const Center(
-        child: Text("Workspace"),
+        child: Text("Activity"),
       )
     );
   }

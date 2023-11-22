@@ -36,7 +36,7 @@ class MeScreen extends ConsumerWidget {
             const SizedBox(width: 10),
             InkWell(
               onTap: () {
-                ref.read(appThemeProvider.notifier).toggleTheme();
+                ref.read(appThemeModeNotifierProvider.notifier).toggleTheme();
               },
               child: CircleAvatar(
                 child: Icon(

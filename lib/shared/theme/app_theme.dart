@@ -1,37 +1,38 @@
+import 'package:flutter_architecture/shared/services/common_service/domain/providers/sharedpreferences_storage_service_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/shared/services/common_service/domain/repositories/storage_repository.dart';
-import 'package:flutter_architecture/shared/services/common_service/domain/providers/sharedpreferences_storage_service_provider.dart';
 import 'package:flutter_architecture/shared/globals.dart';
 import 'package:flutter_architecture/shared/theme/extend_color_scheme.dart';
 import 'package:flutter_architecture/shared/theme/text_styles.dart';
 import 'package:flutter_architecture/shared/theme/text_theme.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final appThemeProvider = StateNotifierProvider<AppThemeModeNotifier, ThemeMode>(
-  (ref) {
-    final storage = ref.watch(storageServiceProvider);
-    return AppThemeModeNotifier(storage);
-  },
-);
+part 'app_theme.g.dart';
 
-class AppThemeModeNotifier extends StateNotifier<ThemeMode> {
-  final StorageRepository stroageService;
+@riverpod
+class AppThemeModeNotifier extends _$AppThemeModeNotifier {
+  late final StorageRepository _stroageService;
 
   ThemeMode currentTheme = ThemeMode.light;
 
-  AppThemeModeNotifier(this.stroageService) : super(ThemeMode.light) {
-    getCurrentTheme();
+  @override
+  Future<ThemeMode> build() {
+    // ref.onDispose(() { })
+    // state = const AsyncValue.data(AuthState.initial());
+    _stroageService = ref.watch(storageServiceProvider);
+    return getCurrentTheme();
   }
 
   void toggleTheme() {
-    state = state == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
-    stroageService.set(APP_THEME_STORAGE_KEY, state.name);
+    state = AsyncData(state.requireValue == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark);
+    _stroageService.set(APP_THEME_STORAGE_KEY, state.requireValue.name);
   }
 
-  void getCurrentTheme() async {
-    final theme = await stroageService.get(APP_THEME_STORAGE_KEY);
+  Future<ThemeMode> getCurrentTheme() async {
+    final theme = await _stroageService.get(APP_THEME_STORAGE_KEY);
     final value = ThemeMode.values.byName('${theme ?? 'light'}');
-    state = value;
+    state = AsyncData(value);
+    return value;
   }
 }
 
