@@ -2,12 +2,12 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_architecture/shared/models/either.dart';
 import 'package:flutter_architecture/shared/models/response.dart';
 
-class AppException implements Exception {
+class AppException extends Equatable implements Exception {
   final String? message;
   final int? statusCode;
   final String? identifier;
 
-  AppException({
+  const AppException({
     required this.message,
     required this.statusCode,
     required this.identifier,
@@ -16,23 +16,14 @@ class AppException implements Exception {
   String toString() {
     return 'statusCode=$statusCode\nmessage=$message\nidentifier=$identifier';
   }
+  
+  @override
+  List<Object?> get props => [statusCode, identifier, message];
 }
 
-class CacheFailureException extends Equatable implements AppException {
-  @override
-  String? get identifier => 'Cache failure exception';
-
-  @override
-  String? get message => 'Unable to save user';
-
-  @override
-  int? get statusCode => 100;
-
-  @override
-  List<Object?> get props => [message, statusCode, identifier];
+class GlobalExceptions{
+  static AppException cacheFailureException({String? message}) => AppException(message: message ?? 'Unable to save to cache', statusCode: 100, identifier: 'Cache failure exception');
 }
-
-//  extension
 
 extension HttpExceptionExtension on AppException {
   Left<AppException, Response> get toLeft => Left<AppException, Response>(this);

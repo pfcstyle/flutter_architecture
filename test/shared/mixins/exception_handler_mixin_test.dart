@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_architecture/shared/services/common_service/data/datasouce/dio_network_repository_imp.dart';
+import 'package:flutter_architecture/shared/services/common_service/data/repositories/remote/dio_network_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 void main() {
-  late DioNetworkRepository mockDioNetworkServide;
+  late DioNetworkRepositoryImpl mockDioNetworkServide;
   setUpAll(() {
-    mockDioNetworkServide = DioNetworkRepository(MockDio());
+    mockDioNetworkServide = DioNetworkRepositoryImpl(MockDio());
   });
   group(
     'ExceptionHandler Mixin Test\n',

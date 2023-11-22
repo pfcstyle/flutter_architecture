@@ -13,26 +13,24 @@ part 'app_theme.g.dart';
 class AppThemeModeNotifier extends _$AppThemeModeNotifier {
   late final StorageRepository _stroageService;
 
-  ThemeMode currentTheme = ThemeMode.light;
-
   @override
-  Future<ThemeMode> build() {
+  ThemeMode build() {
     // ref.onDispose(() { })
     // state = const AsyncValue.data(AuthState.initial());
     _stroageService = ref.watch(storageServiceProvider);
-    return getCurrentTheme();
+    getCurrentTheme();
+    return ThemeMode.light;
   }
 
   void toggleTheme() {
-    state = AsyncData(state.requireValue == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark);
-    _stroageService.set(APP_THEME_STORAGE_KEY, state.requireValue.name);
+    state = state == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+    _stroageService.set(APP_THEME_STORAGE_KEY, state.name);
   }
 
-  Future<ThemeMode> getCurrentTheme() async {
+  void getCurrentTheme() async {
     final theme = await _stroageService.get(APP_THEME_STORAGE_KEY);
     final value = ThemeMode.values.byName('${theme ?? 'light'}');
-    state = AsyncData(value);
-    return value;
+    state = value;
   }
 }
 

@@ -36,14 +36,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: const Center(
+      body: Center(
         child: Text(
           'Splash Screen',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w600,
-            fontSize: 18.0,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
     );

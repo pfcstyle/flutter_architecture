@@ -11,7 +11,7 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(appThemeModeNotifierProvider).requireValue;
+    final themeMode = ref.watch(appThemeModeNotifierProvider);
     return MaterialApp.router(
       onGenerateTitle: (context) => L.of(context).title,
       theme: AppTheme.lightTheme,
