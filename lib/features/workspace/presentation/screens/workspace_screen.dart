@@ -12,9 +12,7 @@ class WorkspaceScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text("Workspace"),
       ),
-      body: const Center(
-        child: Text("Workspace"),
-      )
+      body: const Text("Workspace")
     );
   }
 }
