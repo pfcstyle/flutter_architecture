@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/shared/widgets/responsive_adaptive/screen_size.dart';
 
+// TODO: APP层面集成flutter_screenutil
+// 尝试扩展flutter_screenutil进ScreenSize
+// 与text theme集成
+// 根据design，集成colors和fonts
 class CustomLayoutBuilder extends StatelessWidget {
   
   final LayoutWidgetBuilder portraitBuilder;
