@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:flutter_architecture/main/log.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class Observers extends ProviderObserver {
@@ -10,7 +9,7 @@ class Observers extends ProviderObserver {
     Object? value,
     ProviderContainer container,
   ) {
-    log('Provider ${provider.name ?? provider.runtimeType} was initialized with $value');
+    Log.v('Provider ${provider.name ?? provider.runtimeType} was initialized with $value');
   }
 
   @override
@@ -20,12 +19,12 @@ class Observers extends ProviderObserver {
     Object? newValue,
     ProviderContainer container,
   ) {
-    log('Provider ${provider.name ?? provider.runtimeType} updated from $previousValue to $newValue');
+    Log.v('Provider ${provider.name ?? provider.runtimeType} updated from $previousValue to $newValue');
   }
 
   @override
   void didDisposeProvider(ProviderBase provider, ProviderContainer container) {
-    log('Provider ${provider.name ?? provider.runtimeType} was disposed');
+    Log.v('Provider ${provider.name ?? provider.runtimeType} was disposed');
     super.didDisposeProvider(provider, container);
   }
 
@@ -36,6 +35,6 @@ class Observers extends ProviderObserver {
     StackTrace stackTrace,
     ProviderContainer container,
   ) {
-    log('Provider ${provider.name ?? provider.runtimeType} threw $error at $stackTrace');
+    Log.v('Provider ${provider.name ?? provider.runtimeType} threw $error at $stackTrace');
   }
 }

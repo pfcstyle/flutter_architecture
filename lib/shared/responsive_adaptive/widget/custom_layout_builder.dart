@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/shared/widgets/responsive_adaptive/screen_size.dart';
+import 'package:flutter_architecture/shared/responsive_adaptive/screen_size_type.dart';
 
-// TODO: APP层面集成flutter_screenutil
-// 尝试扩展flutter_screenutil进ScreenSize
-// 与text theme集成
-// 根据design，集成colors和fonts
 class CustomLayoutBuilder extends StatelessWidget {
   
   final LayoutWidgetBuilder portraitBuilder;
@@ -17,8 +13,8 @@ class CustomLayoutBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        ScreenSize screenSize = getSize(context);
-        if (screenSize == ScreenSize.medium) {
+        ScreenSizeType screenSizeType = getScreenSizeTypeByContext(context);
+        if (screenSizeType == ScreenSizeType.medium) {
           return portraitBuilder(context, constraints);
         } else {
           if(landscapeBuilder != null){

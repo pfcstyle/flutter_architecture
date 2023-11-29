@@ -36,6 +36,7 @@ class AppThemeModeNotifier extends _$AppThemeModeNotifier {
 
 class AppTheme {
   static ThemeData get darkTheme {
+    final textStyle = AppTextStyles();
     return ThemeData(
       brightness: Brightness.dark,
       fontFamily: AppTextStyles.fontFamily,
@@ -45,25 +46,27 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.black,
       textTheme: TextThemes.darkTextTheme,
       primaryTextTheme: TextThemes.primaryTextTheme,
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         elevation: 0,
         backgroundColor: AppColors.primaryDrak,
-        titleTextStyle: AppTextStyles.h2,
+        titleTextStyle: textStyle.h2,
       ),
     );
   }
 
   /// Light theme data of the app
   static ThemeData get lightTheme {
+    final textStyle = AppTextStyles();
     return ThemeData(
       brightness: Brightness.light,
       primaryColor: AppColors.primary,
       textTheme: TextThemes.textTheme,
       primaryTextTheme: TextThemes.primaryTextTheme,
       colorScheme: const ColorScheme.light(),
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         elevation: 0,
         backgroundColor: AppColors.primary,
+        titleTextStyle: textStyle.h2,
       ),
     );
   }

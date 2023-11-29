@@ -15,6 +15,8 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
 // @override
 // replaceInRouteName
 
+  
+
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
       // if(isAuthenticated || resolver.route.name == LoginRoute.name){

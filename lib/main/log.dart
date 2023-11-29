@@ -11,7 +11,7 @@ import 'package:path_provider/path_provider.dart';
 class Log {
   static final Logger _logger = Logger(
     printer: PrefixPrinter(PrettyPrinter(printEmojis: true, printTime: true)),
-    level: EnvInfo.isProduction ? Level.warning : Level.all,
+    level: EnvInfo.logLevel,
     output: MultiOutput([ConsoleOutput(), MyLogFileOutput()])
   );
   

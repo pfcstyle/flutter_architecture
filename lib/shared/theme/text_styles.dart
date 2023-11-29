@@ -1,49 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+///Don't use static properties, because they will be loaded
+///before screenutil, xx.sp is invalid
 class AppTextStyles {
   // static const String fontFamily = 'Helvetica';
-  static const String fontFamily = 'Avenir';
+  static String fontFamily = 'Avenir';
 
   /// Text style for body
-  static const TextStyle bodyLg = TextStyle(
-    fontSize: 16,
+  TextStyle bodyLg = TextStyle(
+    fontSize: 16.sp,
     fontWeight: FontWeight.w500,
   );
 
-  static const TextStyle body = TextStyle(
-    fontSize: 14,
+  TextStyle body = TextStyle(
+    fontSize: 14.sp,
     fontWeight: FontWeight.w400,
   );
 
-  static const TextStyle bodySm = TextStyle(
-    fontSize: 12,
+  TextStyle bodySm = TextStyle(
+    fontSize: 12.sp,
     fontWeight: FontWeight.w300,
   );
 
-  static const TextStyle bodyXs = TextStyle(
-    fontSize: 10,
+  TextStyle bodyXs = TextStyle(
+    fontSize: 10.sp,
     fontWeight: FontWeight.w300,
   );
 
   /// Text style for heading
 
-  static const TextStyle h1 = TextStyle(
-    fontSize: 24,
+  TextStyle h1 = TextStyle(
+    fontSize: 24.sp,
     fontWeight: FontWeight.w700,
   );
 
-  static const TextStyle h2 = TextStyle(
-    fontSize: 22,
+  TextStyle h2 = TextStyle(
+    fontSize: 22.sp,
     fontWeight: FontWeight.w700,
   );
 
-  static const TextStyle h3 = TextStyle(
-    fontSize: 20,
+  TextStyle h3 = TextStyle(
+    fontSize: 20.sp,
     fontWeight: FontWeight.w600,
   );
 
-  static const TextStyle h4 = TextStyle(
-    fontSize: 18,
+  TextStyle h4 = TextStyle(
+    fontSize: 18.sp,
     fontWeight: FontWeight.w500,
   );
 }

@@ -1,8 +1,10 @@
 // ignore_for_file: constant_identifier_names, use_setters_to_change_properties, avoid_classes_with_only_static_members
-enum AppEnvironment { DEV, STAGING, PROD }
+import 'package:logger/logger.dart';
+
+enum AppEnvironment { DEBUG, DEV, STAGING, PROD }
 
 abstract class EnvInfo {
-  static AppEnvironment _environment = AppEnvironment.DEV;
+  static AppEnvironment _environment = AppEnvironment.PROD;
 
   static void initialize(AppEnvironment environment) {
     EnvInfo._environment = environment;
@@ -13,6 +15,17 @@ abstract class EnvInfo {
   static String get connectionString => _environment._connectionString;
   static AppEnvironment get environment => _environment;
   static bool get isProduction => _environment == AppEnvironment.PROD;
+  
+  static Level get logLevel{
+    switch (_environment) {
+      case AppEnvironment.DEBUG:
+        return Level.all;
+      case AppEnvironment.DEV:
+        return Level.info;
+      default:
+        return Level.warning;
+    }
+  }
 }
 
 extension _EnvProperties on AppEnvironment {
