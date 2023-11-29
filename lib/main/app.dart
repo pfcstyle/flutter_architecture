@@ -15,13 +15,10 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeMode = ref.watch(appThemeModeNotifierProvider);
     return ScreenUtilInit(
-        designSize: getScreenSizeTypeByContext(context) == ScreenSizeType.medium
-            ? const Size(375, 667)
-            : const Size(1024, 1366),
+        designSize: getDesignSize(context),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (_, child) => MediaQuery(
-
             ///Setting font does not change with system font size
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
             child: MaterialApp.router(
