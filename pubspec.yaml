@@ -45,6 +45,7 @@ dependencies:
   logger: ^2.0.2
   path_provider: ^2.1.1
   flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -76,7 +77,7 @@ flutter_gen:
   line_length: 80 # Optional (default: 80)
 
   integrations:
-    flutter_svg: false
+    flutter_svg: true
     flare_flutter: false
     rive: false
     lottie: false

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/gen/fonts.gen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 ///Don't use static properties, because they will be loaded
 ///before screenutil, xx.sp is invalid
 class AppTextStyles {
